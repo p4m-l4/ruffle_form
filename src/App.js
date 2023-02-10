@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route }  from 'react-router-dom';
+import Navbar1 from './components/Navbar1';
+import Footer from './components/Footer';
+import Tests from './components/Tests';
+import Questionnaire from './components/Form';
+import CreateForm from './components/CreateForm';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <> 
+      <BrowserRouter>
+        <Navbar1 />
+        <Routes>
+          <Route path='/tests' element={<Tests/>}></Route>
+          <Route path='/questionnaire' element={<Questionnaire/>}></Route>
+          <Route path='/1' element={<Tests/>}></Route>
+          <Route path='/2' element={<Tests/>}></Route>
+          <Route path='/3' element={<Tests/>}></Route>
+          <Route path='/create_form' element={<CreateForm/>}></Route>
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </>
   );
 }
 
